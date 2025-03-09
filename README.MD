@@ -1,150 +1,132 @@
-<h1 align="center">
-  <br />
-  <img
-    src="./_docs/assets/icon.png"
-    alt="Mega Man Robots API"
-    width="150"
-  />
-  <br />
-  <b>Mega Man Robots API</b>
-  <br />
-  <sub
-    ><sup><b>(MEGA-MAN-ROBOTS)</b></sup></sub
-  >
-  <br />
-  <a
-    href="https://github.com/felipeAguiarCode/MegaApiDotnetCore/actions/workflows/build.yml"
-  >
-    <img
-      src="https://github.com/felipeAguiarCode/MegaApiDotnetCore/actions/workflows/build.yml/badge.svg"
-      alt=""
-    />
-  </a>
-  <a href="https://github.com/felipeAguiarCode/MegaApiDotnetCore/releases/latest">
-    <img
-      src="https://img.shields.io/github/v/release/felipeAguiarCode/MegaApiDotnetCore"
-      alt="Latest Release"
-    />
-  </a>
-</h1>
+Aqui está o código principal atualizado com a nova estrutura de pastas:
 
-<p align="center">
-  This .NET Core API is designed to serve JSON formatted data about bosses from
-  the Mega Man series. It is a backend service built with .NET Core 3.1 and
-  various modern dependencies for data management and API response handling.
-  <br />
-</p>
+```markdown
+# Documentação da API - MegaMan Bosses
 
-<p align="center">
-  Developed with Entity Framework Core and other modern .NET technologies, this
-  project aims to provide a robust API for accessing Mega Man robot data.
-  <br />
-</p>
+## Visão Geral
 
-<p align="center">
-  <br />
-  <img src="./_docs/assets/carbon.png" />
-</p>
+Este projeto é uma API desenvolvida em [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet/3.1) para listar dados dos bosses da franquia MegaMan. A API fornece os dados em formato JSON conforme o exemplo abaixo:
 
-## API Endpoints
-
-<table align="center">
-  <tr>
-    <th>Method</th>
-    <th>Endpoint</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td>/api/v1/robots</td>
-    <td>Returns a list of all robots</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td>/api/v1/robots/{id}</td>
-    <td>Returns details of a specific robot by ID</td>
-  </tr>
-  <tr>
-    <td>POST</td>
-    <td>/api/v1/robots</td>
-    <td>Endpoint to create a new robot entry</td>
-  </tr>
-</table>
-
-## Techniques Used
-
-<p align="center">
-  - <b>Entity Framework Core:</b> ORM for data management.<br />
-  - <b>RESTful API Design:</b> Ensures clear and effective communication
-  endpoints.<br />
-  - <b>Dependency Injection:</b> Used throughout to promote loose coupling and
-  enhanced testability.<br />
-</p>
-
-## Dependencies
-
-<table align="center">
-  <tr>
-    <th>Package</th>
-    <th>Version</th>
-    <th>Link</th>
-  </tr>
-  <tr>
-    <td>Microsoft.EntityFrameworkCore</td>
-    <td>3.1.8</td>
-    <td>
-      <a
-        href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/3.1.8"
-        >NuGet</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Microsoft.EntityFrameworkCore.Design</td>
-    <td>3.1.8</td>
-    <td>
-      <a
-        href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design/3.1.8"
-        >NuGet</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Microsoft.EntityFrameworkCore.SqlServer</td>
-    <td>3.1.8</td>
-    <td>
-      <a
-        href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/3.1.8"
-        >NuGet</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Newtonsoft.Json</td>
-    <td>12.0.2</td>
-    <td>
-      <a href="https://www.nuget.org/packages/Newtonsoft.Json/12.0.2">NuGet</a>
-    </td>
-  </tr>
-</table>
-
-## :gear: Arch
-
-```🌐
-src
-├── 📂 Controllers      [Routes for endpoints]
-├── 📂 Models           [Database models]
-├── 📂 Services         [Business rules]
-├── 📂 Middlewares      [Intermediate functions between the HTTP request and the final server response]
-├── 📂 Database         [Structures related to the database]
-│   ├── 📂 DTOs             [Input Models and View Models (Data Transfer Objects)]
-│   ├── 📂 EntityFramework  [Files related to the ORM Entity Framework]
-│   │     ├── 📂 Context         [Entity context settings]
-│   │     ├── 📂 Migrations      [Migrations for database updates]
-│   ├── 📂 Repositories     [Repository pattern]
+```json
+{
+    "Id": 1,
+    "Code": "DLN/DRN-003",
+    "Name": "Cutman",
+    "HP": 150,
+    "Picture": "https://vignette.wikia.nocookie.net/megaman/images/2/22/Cutman.png"
+}
 ```
 
-## License This software is licensed under the terms of the [MIT]
+---
 
-⌨️ FelipeAguiar -
-[Github](https://github.com/felipeAguiarCode)
+## Tecnologias Utilizadas
+
+| Tecnologia                                                                    | Versão | Link                                   |
+| ----------------------------------------------------------------------------- | ------ | -------------------------------------- |
+| [.NET Core](https://dotnet.microsoft.com/download/dotnet/3.1)                 | 3.1    | Framework principal para a API         |
+| [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)            | 3.1.8  | ORM para manipulação do banco de dados |
+| [SQL Server](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads) | -      | Banco de dados utilizado               |
+| [Newtonsoft.Json](https://www.newtonsoft.com/json)                            | 12.0.2 | Biblioteca para manipulação de JSON    |
+
+---
+
+## Estrutura do Projeto
+
+```
+/src
+├── .vs
+│   └── MegamanApi
+│       └── v15
+├── .vscode
+├── bin
+│   └── Debug
+│       └── netcoreapp3.1
+│           └── Properties
+│           └── runtimes
+│               └── unix
+│                   └── lib
+│                       └── netcoreapp2.0
+│                       └── netcoreapp2.1
+│               └── win
+│                   └── lib
+│                       └── netcoreapp2.0
+│                       └── netcoreapp2.1
+│                       └── netstandard2.0
+│               └── win-arm64
+│                   └── native
+│               └── win-x64
+│                   └── native
+│               └── win-x86
+│                   └── native
+├── Controllers
+├── Database
+│   ├── DTOs
+│   │   └── Robots
+│   ├── EntityFramework
+│   │   ├── Context
+│   │   └── Migrations
+│   └── Repositories
+│       └── Robots
+├── middlewares
+├── Models
+├── obj
+│   └── Debug
+│       └── netcoreapp3.1
+│           └── staticwebassets
+├── Properties
+├── Services
+│   └── Robots
+└── _docs
+    └── assets
+```
+
+---
+
+## Arquitetura do Projeto
+
+![Arquitetura do Projeto](./_docs/architecture.png)
+
+---
+
+## Técnicas Utilizadas
+
+- Injeção de dependência
+- Utilização de DTOs para transferência segura de dados
+- Organização por camadas para melhor manutenção do código
+
+---
+
+## Endpoints da API
+
+### **GET /api/v1/robots**
+
+- **Descrição:** Retorna a lista completa dos robôs.
+
+### **GET /api/v1/robots/{id}**
+
+- **Descrição:** Retorna um robô específico pelo seu `id`.
+
+### **POST /api/v1/robots**
+
+- **Descrição:** Envia um novo robô para a base de dados.
+
+---
+
+## Estrutura do Modelo `Robot`
+
+```csharp
+public class Robot
+{
+    public int Id { get; set; }
+    public string Code { get; set; }
+    public string Name { get; set; }
+    public int HP { get; set; }
+    public string Picture { get; set; }
+}
+```
+
+---
+
+## Contato
+
+RobsonAndrade [GitHub](https://github.com/rdandrade2)

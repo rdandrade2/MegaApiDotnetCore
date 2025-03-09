@@ -1,19 +1,19 @@
 contexto:
 Este projeto é um projeto de uma api feito em dotnet, para listar os dados dos bosses de megaman, o objetivo principal é ser um backend que fornece jsons no formato abaixo:
 
-```
-{
-  Id =1,
-  Code = "DLN/DRN-003",
-  Name = "Cutman",
-  HP = 150,
-  Picture = "https://vignette.wikia.nocookie.net/megaman/images/2/22/Cutman.png"
-}
-```
+"""
+{ 
+                        Id =1,
+                        Code = "DLN/DRN-003",
+                        Name = "Cutman",
+                        HP = 150,
+                        Picture = "https://vignette.wikia.nocookie.net/megaman/images/2/22/Cutman.png"
+                }
+
+"""
 
 Especificações do projeto:
-
-```
+"""
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
@@ -31,79 +31,56 @@ Especificações do projeto:
   </ItemGroup>
 
 </Project>
-```
-
-os endpoints do projeto são:
-namespace Megaman.Controllers
-
-```
-{
-    //api/v1/robots
-    [ApiController]
-    [Route("api/v1/robots")]
-    public class RobotsController : ControllerBase
-    {
-        private readonly IRobotServices _services;
-        public RobotsController(IRobotServices services)
-        {
-           _services = services;
-        }
-
-        //GET api/robots
-        [HttpGet]
-        public ActionResult<IEnumerable<RobotReadDTO>> GetAllRobots()
-        {
-            var robotItems = _services.SearchAll();
-            return Ok(robotItems);
-        }
-
-        //GET api/v1/robots/{id}
-        [HttpGet]
-        [Route("{id:int}")]
-        public object GetCommandById([FromRoute]int id)
-        {
-            var robot = _services.SearchById(id);
-
-            if(robot != null)
-                return Ok(robot);
-
-                return NotFound(
-                        new { message = "Nenhum robo encontrado" }
-                );
-        }
-
-        //POST api/v1/robots
-        [HttpPost]
-        public ActionResult RobotSend(){
-            return Ok();
-        }
-
-
-    }
-}
-```
+"""
 
 REGRAS:
+-Sempre que citar alguma dependência do projeto, deixe ela como hyperlink para página oficial daquela dependência 
 
-- Sempre que citar alguma dependência do projeto, deixe ela como hyperlink para a página oficial daquela dependência
-- Organize as dependências em uma sessão em formato de tabela
 
-- crie uma estrutura do projeto com base na arvore de pastas abaixo, e crie uma sessão para explicitar as técnicas utilizadas
 
-.vs
-.vscode
-bin
-Controllers
-Database
-middlewares
-Models
-obj
-Properties
-Services
-appsettings.Development.json
-appsettings.json  
-global.json
-MegamanApi.csproj  
-MegamanApi.sln
-Program.cs
-Startup.cs
+
+na parte de estrutura do projeto insira este mapeamento de pastas:./src
+./src/.vs
+./src/.vs/MegamanApi
+./src/.vs/MegamanApi/v15
+./src/.vscode
+./src/bin
+./src/bin/Debug
+./src/bin/Debug/netcoreapp3.1
+./src/bin/Debug/netcoreapp3.1/Properties
+./src/bin/Debug/netcoreapp3.1/runtimes
+./src/bin/Debug/netcoreapp3.1/runtimes/unix
+./src/bin/Debug/netcoreapp3.1/runtimes/unix/lib
+./src/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.0
+./src/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.1
+./src/bin/Debug/netcoreapp3.1/runtimes/win
+./src/bin/Debug/netcoreapp3.1/runtimes/win/lib
+./src/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.0
+./src/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.1
+./src/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0
+./src/bin/Debug/netcoreapp3.1/runtimes/win-arm64
+./src/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native
+./src/bin/Debug/netcoreapp3.1/runtimes/win-x64
+./src/bin/Debug/netcoreapp3.1/runtimes/win-x64/native
+./src/bin/Debug/netcoreapp3.1/runtimes/win-x86
+./src/bin/Debug/netcoreapp3.1/runtimes/win-x86/native
+./src/Controllers
+./src/Database
+./src/Database/DTOs
+./src/Database/DTOs/Robots
+./src/Database/EntityFramework
+./src/Database/EntityFramework/Context
+./src/Database/EntityFramework/Migrations
+./src/Database/Repositories
+./src/Database/Repositories/Robots
+./src/middlewares
+./src/Models
+./src/obj
+./src/obj/Debug
+./src/obj/Debug/netcoreapp3.1
+./src/obj/Debug/netcoreapp3.1/staticwebassets
+./src/Properties
+./src/Services
+./src/Services/Robots
+./_docs
+./_docs/assets
