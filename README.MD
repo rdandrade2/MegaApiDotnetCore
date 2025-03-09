@@ -1,4 +1,3 @@
-Aqui está o código principal atualizado com a nova estrutura de pastas:
 
 ```markdown
 # Documentação da API - MegaMan Bosses
